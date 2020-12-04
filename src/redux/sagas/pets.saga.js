@@ -16,4 +16,5 @@ function* petSaga() {
   yield takeLatest("FETCH_PETS", fetchPets);
 }
 
+
 export default petSaga;
