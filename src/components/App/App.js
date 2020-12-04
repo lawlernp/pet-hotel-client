@@ -1,8 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import { useEffect } from 'react';
+import { connect } from "react-redux";
+import mapStoreToProps from "../../redux/mapStoreToProps";
 
-function App() {
+function App(props) {
 
   const handleTestClick = () => {
     axios.get('/api/test').then(response => {
@@ -11,6 +14,10 @@ function App() {
       console.log(error)
     })
   }
+
+  useEffect  (() => {
+    props.dispatch({type: "FETCH_PETS"});
+  })
 
   return (
     <div className="App">
@@ -28,9 +35,10 @@ function App() {
         >
           Learn React
         </a>
+        {JSON.stringify(props.store.pets)}
       </header>
     </div>
   );
 }
 
-export default App;
+export default connect(mapStoreToProps)(App);
