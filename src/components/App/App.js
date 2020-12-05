@@ -18,7 +18,9 @@ function App(props) {
 
   useEffect  (() => {
     props.dispatch({type: "FETCH_PETS"});
-  })
+  }
+  ,[]
+  )
 
   return (
     <div className="App">
