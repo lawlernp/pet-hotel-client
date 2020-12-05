@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
+import Owners from "../Owners/Owners";
 
 function App(props) {
 
@@ -36,6 +37,7 @@ function App(props) {
           Learn React
         </a>
         {JSON.stringify(props.store.pets)}
+        <Owners/>
       </header>
     </div>
   );
